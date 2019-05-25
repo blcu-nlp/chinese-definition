@@ -10,7 +10,7 @@ The src directory consists of three models:
 
 Paper Link: https://arxiv.org/abs/1905.06512
 
-Contack: cunliang.kong@outlook.com
+Contact: cunliang.kong@outlook.com
 
 ## Dataset Construction
 
