@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=0 th train.lua\
+    --dataType labeled\
+    --rho -1\
+    --batchSize 50\
+    --optim adam\
+    --learningRate 0.001\
+    --modelDir data/commondefs/models/hid_512\
+    --mode ri --RIMode gated\
+    --hiddenSizes "{512, 512}"\
+    --cuda\
+    --lrDecayPPLImp 0.98\
+    --lrDecayPPLWait 4\
+    --lrDecayFactor 1\
+    --RICharCNN\

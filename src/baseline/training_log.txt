@@ -1,0 +1,220 @@
+[INFO  Mon Jul 16 16:24:00 2018]: Configurations: 
+{
+   learningRate : 0.001
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   lrMomentum : 0
+   hiddenSizes : {300}
+   sosId : 2
+   lrDecayEvery : -1
+   lrDecayPPLImp : 0.96
+   modelDir : "data/commondefs/models/sen"
+   mode : "ri"
+   logFilepath : "./training_log.txt"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   embProjectSize : -1
+   dropoutProb : 0.5
+   optim : "adam"
+   initUniform : 0.05
+   realTrainPPL : false
+   rho : 10
+   RIHypernym : true
+   dataDir : "data/commondefs"
+   RIMode : "gated"
+   initLogitWithEmb : true
+   nSkips : 0
+   dataType : "sentence"
+   printSteps : 1000
+   skipSeed : false
+   RIProjectSize : -1
+   gradClip : 5
+   numVocab : 29167
+   embDropoutProb : 0.25
+   RICharCNN : true
+   saveAll : false
+   embeddingSize : 300
+   maxEpoch : 4
+   lrDecayFactor : 0.8
+   lrDecayPPLWait : 2
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Mon Jul 16 16:24:07 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.ParallelTable {
+    input
+      |`-> (1): nn.Sequential {
+      |      [input -> (1) -> (2) -> output]
+      |      (1): nn.ParallelTable {
+      |        input
+      |          |`-> (1): nn.Sequential {
+      |          |      [input -> (1) -> output]
+      |          |      (1): nn.Dropout(0.2, busy)
+      |          |    }
+      |          |`-> (2): nn.Sequential {
+      |          |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |      (1): nn.OneHot
+      |          |      (2): nn.View(1, -1, 73)
+      |          |      (3): nn.ConcatTable {
+      |          |        input
+      |          |          |`-> (1): nn.Sequential {
+      |          |          |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |          |      (1): nn.SpatialConvolution(1 -> 10, 73x2)
+      |          |          |      (2): nn.ReLU
+      |          |          |      (3): nn.SpatialMaxPooling(1x18, 1,18)
+      |          |          |      (4): nn.Squeeze
+      |          |          |      (5): nn.Squeeze
+      |          |          |    }
+      |          |          |`-> (2): nn.Sequential {
+      |          |          |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |          |      (1): nn.SpatialConvolution(1 -> 30, 73x3)
+      |          |          |      (2): nn.ReLU
+      |          |          |      (3): nn.SpatialMaxPooling(1x17, 1,17)
+      |          |          |      (4): nn.Squeeze
+      |          |          |      (5): nn.Squeeze
+      |          |          |    }
+      |          |          |`-> (3): nn.Sequential {
+      |          |          |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |          |      (1): nn.SpatialConvolution(1 -> 40, 73x4)
+      |          |          |      (2): nn.ReLU
+      |          |          |      (3): nn.SpatialMaxPooling(1x16, 1,16)
+      |          |          |      (4): nn.Squeeze
+      |          |          |      (5): nn.Squeeze
+      |          |          |    }
+      |          |          |`-> (4): nn.Sequential {
+      |          |          |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |          |      (1): nn.SpatialConvolution(1 -> 40, 73x5)
+      |          |          |      (2): nn.ReLU
+      |          |          |      (3): nn.SpatialMaxPooling(1x15, 1,15)
+      |          |          |      (4): nn.Squeeze
+      |          |          |      (5): nn.Squeeze
+      |          |          |    }
+      |          |           `-> (5): nn.Sequential {
+      |          |                 [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |          |                 (1): nn.SpatialConvolution(1 -> 40, 73x6)
+      |          |                 (2): nn.ReLU
+      |          |                 (3): nn.SpatialMaxPooling(1x14, 1,14)
+      |          |                 (4): nn.Squeeze
+      |          |                 (5): nn.Squeeze
+      |          |               }
+      |          |           ... -> output
+      |          |      }
+      |          |      (4): nn.JoinTable
+      |          |      (5): nn.Dropout(0.5, busy)
+      |          |    }
+      |           `-> (3): nn.Dropout(0.2, busy)
+      |           ... -> output
+      |      }
+      |      (2): nn.JoinTable
+      |    }
+       `-> (2): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> output]
+             (1): nn.Dropout(0.2, busy)
+             (2): nn.SeqLSTM
+             (3): nn.Dropout(0.5, busy)
+           }
+       ... -> output
+  }
+  (2): nn.ConcatTable {
+    input
+      |`-> (1): nn.Sequential {
+      |      [input -> (1) -> (2) -> (3) -> output]
+      |      (1): nn.JoinOneToMany
+      |      (2): nn.SplitTable
+      |      (3): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+      |        [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+      |        (1): nn.ConcatTable {
+      |          input
+      |            |`-> (1): nn.Sequential {
+      |            |      [input -> (1) -> (2) -> (3) -> output]
+      |            |      (1): nn.Linear(1060 -> 1060)
+      |            |      (2): nn.Sigmoid
+      |            |      (3): nn.ConcatTable {
+      |            |        input
+      |            |          |`-> (1): nn.Narrow
+      |            |           `-> (2): nn.Sequential {
+      |            |                 [input -> (1) -> (2) -> output]
+      |            |                 (1): nn.Narrow
+      |            |                 (2): nn.Padding
+      |            |               }
+      |            |           ... -> output
+      |            |      }
+      |            |    }
+      |             `-> (2): nn.Identity
+      |             ... -> output
+      |        }
+      |        (2): nn.FlattenTable
+      |        (3): nn.ConcatTable {
+      |          input
+      |            |`-> (1): nn.Sequential {
+      |            |      [input -> (1) -> (2) -> output]
+      |            |      (1): nn.SelectTable(1)
+      |            |      (2): nn.ConcatTable {
+      |            |        input
+      |            |          |`-> (1): nn.Sequential {
+      |            |          |      [input -> (1) -> (2) -> output]
+      |            |          |      (1): nn.MulConstant
+      |            |          |      (2): nn.AddConstant
+      |            |          |    }
+      |            |           `-> (2): nn.Identity
+      |            |           ... -> output
+      |            |      }
+      |            |    }
+      |             `-> (2): nn.Sequential {
+      |                   [input -> (1) -> (2) -> (3) -> (4) -> output]
+      |                   (1): nn.NarrowTable
+      |                   (2): nn.CMulTable
+      |                   (3): nn.Linear(1060 -> 300)
+      |                   (4): nn.Tanh
+      |                 }
+      |             ... -> output
+      |        }
+      |        (4): nn.FlattenTable
+      |        (5): nn.ConcatTable {
+      |          input
+      |            |`-> (1): nn.Sequential {
+      |            |      [input -> (1) -> (2) -> output]
+      |            |      (1): nn.NarrowTable
+      |            |      (2): nn.CMulTable
+      |            |    }
+      |             `-> (2): nn.SelectTable(1)
+      |             ... -> output
+      |        }
+      |      }
+      |    }
+       `-> (2): nn.Sequential {
+             [input -> (1) -> (2) -> (3) -> output]
+             (1): nn.SelectTable(2)
+             (2): nn.SplitTable
+             (3): nn.Sequencer @ nn.Recursor @ nn.Identity
+           }
+       ... -> output
+  }
+  (3): nn.ZipTable
+  (4): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> (3) -> (4) -> output]
+    (1): nn.FlattenTable
+    (2): nn.ConcatTable {
+      input
+        |`-> (1): nn.SelectTable(1)
+         `-> (2): nn.Sequential {
+               [input -> (1) -> (2) -> output]
+               (1): nn.NarrowTable
+               (2): nn.CMulTable
+             }
+         ... -> output
+    }
+    (3): nn.CAddTable
+    (4): nn.Dropout(0.5, busy)
+  }
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Mon Jul 16 16:24:08 2018]: ====================Start epoch 1====================
+[INFO  Mon Jul 16 16:24:08 2018]: - Learning rate = 0.001000
+[INFO  Mon Jul 16 16:24:08 2018]: - Training...

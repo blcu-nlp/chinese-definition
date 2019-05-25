@@ -1,0 +1,591 @@
+[INFO  Wed Jun 20 21:20:50 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : false
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:20:53 2018]: Loading model...
+[INFO  Wed Jun 20 21:21:45 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:21:51 2018]: Loading model...
+[INFO  Wed Jun 20 21:21:54 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:27:14 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:27:20 2018]: Loading model...
+[INFO  Wed Jun 20 21:27:23 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:28:27 2018]: Configurations: 
+{
+   genOutFile : "data/gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:28:33 2018]: Loading model...
+[INFO  Wed Jun 20 21:28:36 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:29:41 2018]: Configurations: 
+{
+   genOutFile : "data/gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:29:47 2018]: Loading model...
+[INFO  Wed Jun 20 21:29:49 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:30:31 2018]: Configurations: 
+{
+   genOutFile : "data/gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 5
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:30:37 2018]: Loading model...
+[INFO  Wed Jun 20 21:30:40 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:31:58 2018]: Configurations: 
+{
+   genOutFile : "data/gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : false
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 40
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 50
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:32:04 2018]: Loading model...
+[INFO  Wed Jun 20 21:32:07 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:32:25 2018]: Configurations: 
+{
+   genOutFile : "data/gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : true
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 40
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 50
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:32:31 2018]: Loading model...
+[INFO  Wed Jun 20 21:32:34 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:32:34 2018]: Generating definitions...
+[INFO  Wed Jun 20 21:33:41 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : true
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 40
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 50
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:33:47 2018]: Loading model...
+[INFO  Wed Jun 20 21:33:50 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:33:50 2018]: Generating definitions...
+[INFO  Wed Jun 20 21:35:15 2018]: - Elapsed time = 84s
+[INFO  Wed Jun 20 21:40:41 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : true
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 40
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 50
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:40:54 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : true
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "ri"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 40
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 50
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:41:00 2018]: Loading model...
+[INFO  Wed Jun 20 21:41:05 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:41:05 2018]: Generating definitions...
+[INFO  Wed Jun 20 21:41:31 2018]: Configurations: 
+{
+   genOutFile : "gen.txt"
+   genMaxLen : 30
+   cuda : true
+   batchSize : 64
+   embFilepath : "data/commondefs/auxiliary/emb.t7"
+   i2wFile : "index2word.t7"
+   sosId : 2
+   gen : true
+   rvdWords : "shortlist/shortlist_test.txt"
+   modelDir : "data/commondefs/models/cur"
+   mode : "sen"
+   dataType : "sentence"
+   embeddingSize : 300
+   pplSplit : "test"
+   genSamples : 1
+   RICharCNN : false
+   rvd : false
+   temperature : 1
+   RIHypernym : false
+   dataDir : "data/commondefs"
+   nSkips : 0
+   skipSeed : false
+   numVocab : 29167
+   pplByLen : false
+   ppl : false
+   beamWidth : 10
+   w2iFile : "word2index.t7"
+   hyperEmbFilepath : "data/commondefs/auxiliary/hypernym_embs.t7"
+   genMethod : "greedy"
+   genWords : "shortlist/shortlist_test.txt"
+   logFilepath : "./testing_log.txt"
+   modelName : "best_model.t7"
+   cudnnCNN : false
+   eosId : 1
+}
+[INFO  Wed Jun 20 21:41:38 2018]: Loading model...
+[INFO  Wed Jun 20 21:41:40 2018]: Model:
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+  (1): nn.Dropout(0.2, busy)
+  (2): nn.SeqLSTM
+  (3): nn.Dropout(0.5, busy)
+  (4): nn.SplitTable
+  (5): nn.Sequencer @ nn.Recursor @ nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.Linear(300 -> 29167)
+    (2): nn.LogSoftMax
+  }
+}
+[INFO  Wed Jun 20 21:41:40 2018]: Generating definitions...
+[INFO  Wed Jun 20 21:43:01 2018]: - Elapsed time = 80s
