@@ -23,15 +23,17 @@ Contact: cunliang.kong@outlook.com
 
 ### Construction
 
-The dataset construction procedure follows the `README.md`file in the `corpus` directory.
+The dataset construction procedure follows the `README.md`file in the `scripts/make_dataset` directory.
 
-We have also written an integreted script `make_corpus.sh` in the directory of `src`. 
+We have also written an integreted script `make_dataset.sh` in the directory of `src`. 
 
 ```bash
 cd src
-chmod +x make_corpus.sh
-./make_corpus.sh
+chmod +x make_dataset.sh
+./make_dataset.sh
 ```
+
+The CWN dataset we used in the experiments is in the `dataset/cwn` directory.
 
 ## Baseline
 
